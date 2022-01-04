@@ -23,39 +23,6 @@ app.get('/api/get_film/:id', (req, res) => {
     res.json('error')
 })
 
-app.get('/api/sort_films', (req, res) => {
-    if (req.query.genge) {
-        let films = []
-
-        for (let i = 0; i < film.length; i++) {
-            for (let j = 0; j < film[i].genre.length; j++) {
-                if (req.query.genge.split(',').includes(film[i].genre[j])) {
-                    films.push(film[i])
-                }
-            }
-        }
-
-        res.json(films)
-        return
-    }
-
-    else if (req.query.date) {
-        let films = []
-
-        for (let i = 0; i < film.length; i++) {
-            if (film[i].date.includes(req.query.date)) {
-                films.push(film[i])
-            }
-        }
-
-        res.json(films)
-        return
-    }
-
-    res.json('error')
-})
-
-
 
 let PORT = process.env.PORT || 5000
 
